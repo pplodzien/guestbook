@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Scheherazade" rel="stylesheet">
+    <title>Guestbook</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<header>
+<h1 id ="logo"> Guestbook </h1>
+</header>
+
+
+<div class = "answers">
+    {% for note in notes %}
+        <div class = "note">
+            <p>Author: {{ note.getAuthor()}}</p>
+            <br><br>
+            <p>{{ note.getMessage()}}</p>
+            <br><br>
+            <p>{{ note.getDate()}}</p>
+
+        </div>
+    {% endfor %}
+
+
+</div>
+
+<form method="POST">
+    <fieldset>
+        <label>Name<br>
+            <input  type="text" name="name" placeholder="Enter your name" required>
+        </label><br><br><br>
+
+        <label>Message<br>
+            <textarea name="message" placeholder="Enter your message"></textarea>
+        </label><br>
+        <input id="submit-button" type="submit" name="submit" value="Send message">
+    </fieldset>
+</form>
+</body>
+</html>
